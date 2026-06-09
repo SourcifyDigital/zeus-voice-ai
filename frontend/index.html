@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zeus Voice AI</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300d4ff'><path d='M12 2a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z'/><path d='M19 10v2a7 7 0 0 1-14 0v-2'/><line x1='12' y1='19' x2='12' y2='23'/><line x1='8' y1='23' x2='16' y2='23'/></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen">
+            <div class="logo">⚡ Zeus</div>
+            <h1>Your Voice AI Assistant</h1>
+            <p>Talk to your email, calendar, and search the web — hands-free. Sign in with Google to get started.</p>
+            <button id="google-signin-btn" class="google-btn">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                Sign in with Google
+            </button>
+            <p style="margin-top: 24px; font-size: 0.75rem; color: #5a5a6e;">
+                Connects Gmail, Calendar &amp; web search
+            </p>
+        </div>
+
+        <!-- Main Chat Screen -->
+        <div id="chat-screen" class="screen hidden">
+            <header>
+                <span class="logo-small">⚡ Zeus</span>
+                <span id="user-email" class="user-email"></span>
+                <button id="logout-btn" class="logout-btn">Sign out</button>
+            </header>
+
+            <div id="chat-messages" class="chat-messages">
+                <div class="message assistant">
+                    Hey, I'm Zeus. Sign in with Google to connect your email and calendar, then ask me anything.
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div id="status-text" class="status-text">Tap the mic to start</div>
+                <button id="mic-btn" class="mic-btn" title="Click to speak">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                        <line x1="12" y1="19" x2="12" y2="23"/>
+                        <line x1="8" y1="23" x2="16" y2="23"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Hidden audio element for playback -->
+        <audio id="audio-player" style="display:none;"></audio>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Zeus Voice AI .gitignore
+__pycache__/
+*.pyc
+.env
+audio_cache/
+*.egg-info/
+.venv/
+venv/
