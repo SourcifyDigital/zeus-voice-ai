@@ -24,12 +24,17 @@ import groq
 import edge_tts
 
 # ── Load env ──────────────────────────────────────────────────────────
-load_dotenv()
+# Load .env from the same directory as this file
+_env_path = Path(__file__).parent / ".env"
+if _env_path.exists():
+    load_dotenv(_env_path)
+else:
+    load_dotenv()  # fallback for direct python main.py
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 if not GROQ_API_KEY:
     print("[WARN] GROQ_API_KEY not set. Voice processing will fail.")
-    GROQ_API_KEY = "sk-fallback"
+    print("[WARN] Create a .env file with: GROQ_API_KEY=gsk_your_key_here")
 
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "")
 GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET", "")

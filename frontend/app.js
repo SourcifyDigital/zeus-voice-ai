@@ -2,9 +2,10 @@
 // Auto-detect API URL
 const API_BASE = (() => {
     const host = window.location.host;
-    // If on Vercel, backend is on Render
-    if (host.includes('vercel.app')) {
-        return 'https://zeus-voice-ai.onrender.com';
+    // If on Vercel and not local dev, use render or ngrok
+    if (host.includes('vercel.app') && !host.includes('localhost')) {
+        // TEMP: For demo, use localhost (deploying to Render later)
+        return 'http://localhost:8000';
     }
     return 'http://localhost:8000';
 })();
